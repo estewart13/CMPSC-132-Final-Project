@@ -60,3 +60,15 @@ class Game:
         elif(self.p2.position == 100):
             print(self.p2.name,"wins!")
         
+
+if __name__ == "__main__":
+    print("Welcome to Snakes and Ladders!")
+    name1 = input("Player one please enter your name: ")
+    p1 = Player(name1)
+
+    name2 = input("Player two please enter your name: ")
+    p2 = Player(name2)
+
+    g = Game(p1,p2)
+    g.play()
+    print("Game over")
