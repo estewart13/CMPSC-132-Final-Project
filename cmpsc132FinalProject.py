@@ -22,4 +22,19 @@ class Player:
         self.position += roll
         print("You moved from", old, "to", self.position)
 
-        
+        if(self.position in self.snakes):
+            old = self.position
+            self.position = self.snakes[old]
+            print("Oh no! You hit a snake! You moved from", old, "down to", self.position)
+
+        elif(self.position in self.ladders):
+            old = self.position
+            self.position = self.ladders[old]
+            print("Yay! You landed on a ladder! You moved from", old, "up to", self.position)
+
+        elif(self.position > 100):
+            self.position = old
+            print("Oh no! You went over 100! You moved back to" , old)
+
+        if(self.position == 100):
+            print("Congrats! You made it to 100! You win!")
