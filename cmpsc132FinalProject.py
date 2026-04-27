@@ -39,3 +39,24 @@ class Player:
 
         if(self.position == 100): # Check to see if a player reached 100 and won the game
             print("Congrats! You made it to 100! You win!")
+
+class Game:
+
+    def __init__(self,player1, player2):
+        self.p1 = player1 #Player class
+        self.p2 = player2 #Player class
+
+    def play(self):
+        print("Let the games begin!")
+        while(self.p1.position != 100 and self.p2.position != 100):
+            print(self.p1.name, "it is your turn")
+            self.p1.move()
+
+            print(self.p2.name, "it is your turn")
+            self.p2.move()
+
+        if(self.p1.position == 100):
+            print(self.p1.name,"wins!")
+        elif(self.p2.position == 100):
+            print(self.p2.name,"wins!")
+        
