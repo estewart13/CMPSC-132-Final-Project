@@ -1,6 +1,7 @@
 import random
 
 class Player:
+    # Pre defined variables for the locations of the snakes and ladders and where they lead to
     snakes = {16:6, 47:26, 49:11, 56:53, 62:19, 64:60, 87:24, 93:73, 95:75, 98:78}
     ladders = {1:38, 4:14, 9:31, 21:42, 28:84, 36:44, 51:67, 71:91, 80:100}
 
@@ -22,19 +23,19 @@ class Player:
         self.position += roll
         print("You moved from", old, "to", self.position)
 
-        if(self.position in self.snakes):
+        if(self.position in self.snakes): #Check to see if player landed on a snake
             old = self.position
             self.position = self.snakes[old]
             print("Oh no! You hit a snake! You moved from", old, "down to", self.position)
 
-        elif(self.position in self.ladders):
+        elif(self.position in self.ladders): # Check to see if a player landed on a ladder
             old = self.position
             self.position = self.ladders[old]
             print("Yay! You landed on a ladder! You moved from", old, "up to", self.position)
 
-        elif(self.position > 100):
+        elif(self.position > 100): # Check to see if a player went over 100
             self.position = old
             print("Oh no! You went over 100! You moved back to" , old)
 
-        if(self.position == 100):
+        if(self.position == 100): # Check to see if a player reached 100 and won the game
             print("Congrats! You made it to 100! You win!")
