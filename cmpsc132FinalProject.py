@@ -51,13 +51,17 @@ class Game:
         while(self.p1.position != 100 and self.p2.position != 100):
             print(self.p1.name, "it is your turn")
             self.p1.move()
+            if(self.p1.position == 100): #Let player 2 know that player 1 has won, give them one more chance to tie
+                print(self.p1.name, "has made it to 100,", self.p2.name, "you have one more chance to tie the game!")
 
             print(self.p2.name, "it is your turn")
             self.p2.move()
 
-        if(self.p1.position == 100):
+        if(self.p1.position == 100 and self.p2.position == 100): # game ends in a tie
+            print("Its a tie!")
+        elif(self.p1.position == 100): # player one wins
             print(self.p1.name,"wins!")
-        elif(self.p2.position == 100):
+        elif(self.p2.position == 100): # player two wins
             print(self.p2.name,"wins!")
         
 
