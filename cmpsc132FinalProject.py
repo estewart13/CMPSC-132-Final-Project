@@ -23,6 +23,10 @@ class Player:
         self.position += roll
         print("You moved from", old, "to", self.position)
 
+        if(self.position < 0): #Incase the position lands below 0, players will go to 0
+            self.position = 0
+            print("Unfortunately you can't go below 0, so you have been placed back to just 0")
+
         if(self.position in self.snakes): #Check to see if player landed on a snake
             old = self.position
             self.position = self.snakes[old]
